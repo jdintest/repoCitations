@@ -5,6 +5,7 @@ See http://code.google.com/p/google-refine/wiki/ReconciliationServiceApi.
 """
 import re
 from pymongo import MongoClient
+import callSFX
 
 #For scoring results
 from fuzzywuzzy import fuzz
@@ -125,6 +126,20 @@ def reconTitles():
 @app.route("/reconcileAbbreviations", methods=['POST', 'GET'])
 def reconAbbreviations():
     return reconcile("abbreviation")
+
+@app.route("/callSFX", methods=['POST', 'GET'])
+def returnAccess():
+    #Look first for form-param requests.
+    issn = request.form.get('issn')
+    if issn is None:
+        #Then normal get param.s
+        issn = request.args.get('issn')
+    date = request.form.get('date')
+    if date is None:
+        date = request.args.get('date')
+
+    return callSFX.callSFX(issn, date)
+
 
 
 if __name__ == '__main__':
