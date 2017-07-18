@@ -118,7 +118,10 @@ def writeHandlesToMongo(communities,year):
         collections = getCollections(community)
         for collection in collections:
             theses = getTheses(collection)
-            getSinceDate(theses,year)
+            try:
+                getSinceDate(theses,year)
+            except:
+                continue
 
 
 

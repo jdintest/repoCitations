@@ -66,11 +66,11 @@ mongoSetup.setupMongoCollections()
 
 
 # search repository for theses to process and write to Mongo
-#repositoryFunctions.writeHandlesToMongo(communitiesList,yearToProcess)
+repositoryFunctions.writeHandlesToMongo(communitiesList,yearToProcess)
 
 # read from Mongo to process with Grobid
 
-#allTheses = toProcess.find().batch_size(20)
+allTheses = toProcess.find().batch_size(20)
 
 #for thesis in allTheses:
 
