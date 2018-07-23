@@ -51,7 +51,7 @@ def processThesis():
 
 # make sure grobid is running
 try:
-    r = requests.get("http://localhost:8070/api/isalive")
+    r = requests.get("http://localhost:8071/api/isalive")
 except:
     print("grobid not running")
     exit()
