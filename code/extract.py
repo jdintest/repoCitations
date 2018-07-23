@@ -13,7 +13,7 @@ def callGrobid(filename):
 
     '''
     
-    url = "http://localhost:8080/processReferences"
+    url = "http://localhost:8080/api/processReferences"
     files = {"input": filename}
 
     r = requests.post(url,files=files)
