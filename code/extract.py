@@ -107,7 +107,7 @@ def callCrossRef(citation):
 
     if citation.get("type") == "journal" or citation.get("type") == "monograph":
             payload = quote(str(citation.get("payload")))
-            r = requests.get("http://api.crossref.org/works?query=" + payload)
+            r = requests.get("https://api.crossref.org/works?query=" + payload + "&mailto=jdingle@brocku.ca")
             if r.status_code == 200:
                 firstResponse = r.json()
                 if len(firstResponse['message']['items']) > 0:
